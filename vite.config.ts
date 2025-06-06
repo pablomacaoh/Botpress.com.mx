@@ -1,62 +1,29 @@
-import { defineConfig, loadEnv } from "vite";
+// vite.config.ts
+
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-// https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
-  // Load env file based on `mode` in the current directory.
-  const env = loadEnv(mode, process.cwd(), '');
+// No lovable-tagger in this version as it was removed from package.json earlier
+// If you want it, add it back to devDependencies with `npm install lovable-tagger --save-dev`
 
-  // Determine the base URL - Custom domain serves from root
-  const isGitHubPages = env.VITE_GITHUB_PAGES === 'true' || mode === 'production';
+export default defineConfig(({ mode }) => {
+  // For a custom domain on GitHub Pages, the base path is always the root.
   const base = '/';
 
-  console.log('🚀 Building with:', {
-    mode,
-    base,
-    isGitHubPages,
-    env: env.VITE_GITHUB_PAGES
-  });
+  console.log(`🚀 Building for custom domain with base path: ${base}`);
 
   return {
+    base: base,
     server: {
       host: "::",
       port: 8080,
     },
     plugins: [react()],
-    base,
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
       },
-    },
-    optimizeDeps: {
-      include: ["@tanstack/react-query"]
-    },
-    build: {
-      outDir: "dist",
-      sourcemap: true, // Enable sourcemaps for debugging
-      assetsDir: 'assets',
-      rollupOptions: {
-        output: {
-          manualChunks: undefined,
-          entryFileNames: 'assets/[name].[hash].js',
-          chunkFileNames: 'assets/[name].[hash].js',
-          assetFileNames: 'assets/[name].[hash].[ext]'
-        }
-      },
-      assetsInlineLimit: 0,
-      cssCodeSplit: true,
-      minify: true,
-      emptyOutDir: true,
-      copyPublicDir: true,
-      commonjsOptions: {
-        include: [/node_modules/]
-      }
-    },
-    define: {
-      'import.meta.env.VITE_HOMEPAGE': JSON.stringify(base),
-      'import.meta.env.VITE_GITHUB_PAGES': JSON.stringify(isGitHubPages),
     },
   };
 });
