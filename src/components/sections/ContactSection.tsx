@@ -44,13 +44,27 @@ export function ContactSection() {
 
   const watchedValues = watch();
 
+  // Debug logging to check environment variables
+  console.log("🔥 Firebase config check:", {
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY ? "✓ Present" : "✗ Missing",
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN ? "✓ Present" : "✗ Missing",
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID ? "✓ Present" : "✗ Missing",
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET ? "✓ Present" : "✗ Missing",
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID ? "✓ Present" : "✗ Missing",
+    appId: import.meta.env.VITE_FIREBASE_APP_ID ? "✓ Present" : "✗ Missing"
+  });
+
   const onSubmit = async (data: ContactFormInputs) => {
+    console.log("📝 Form submission started:", data);
     setFormStatus('submitting');
+
     try {
+      console.log("🔄 Attempting to save to Firebase...");
       await addDoc(collection(db, "submissions"), {
         ...data,
         submittedAt: serverTimestamp(),
       });
+      console.log("✅ Successfully saved to Firebase!");
       setFormStatus('success');
       toast({
         title: "¡Mensaje enviado!",
@@ -58,7 +72,7 @@ export function ContactSection() {
       });
       reset();
     } catch (error) {
-      console.error("Error adding document: ", error);
+      console.error("❌ Detailed Firebase error:", error);
       setFormStatus('error');
       toast({
         title: "Error",
