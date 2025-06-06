@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,53 +11,65 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
-const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    interest: "",
-    message: "",
-  });
+const contactFormSchema = z.object({
+  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  email: z.string().email({ message: "Please enter a valid email." }),
+  company: z.string().optional(),
+  interest: z.string().optional(),
+  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+});
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+type ContactFormInputs = z.infer<typeof contactFormSchema>;
+
+export function ContactSection() {
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const { toast } = useToast();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    setValue,
+    watch,
+  } = useForm<ContactFormInputs>({
+    resolver: zodResolver(contactFormSchema),
+  });
 
-  const handleSelectChange = (value) => {
-    setFormData({
-      ...formData,
-      interest: value,
-    });
-  };
+  const watchedValues = watch();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    setTimeout(() => {
+  const onSubmit = async (data: ContactFormInputs) => {
+    setFormStatus('submitting');
+    try {
+      await addDoc(collection(db, "submissions"), {
+        ...data,
+        submittedAt: serverTimestamp(),
+      });
+      setFormStatus('success');
       toast({
         title: "¡Mensaje enviado!",
         description: "Nos pondremos en contacto contigo lo antes posible.",
       });
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        interest: "",
-        message: "",
+      reset();
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      setFormStatus('error');
+      toast({
+        title: "Error",
+        description: "Hubo un problema al enviar tu mensaje. Por favor intenta de nuevo.",
+        variant: "destructive",
       });
-      setIsSubmitting(false);
-    }, 1000);
+    }
+  };
+
+  const handleSelectChange = (value: string) => {
+    setValue('interest', value);
   };
 
   return (
@@ -88,46 +99,44 @@ const ContactSection = () => {
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <div>
                   <Label htmlFor="name">Nombre Completo</Label>
                   <Input
                     id="name"
-                    name="name"
                     placeholder="Juan Pérez"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
+                    {...register("name")}
                   />
+                  {errors.name && (
+                    <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+                  )}
                 </div>
 
                 <div>
                   <Label htmlFor="email">Email</Label>
                   <Input
                     id="email"
-                    name="email"
                     type="email"
                     placeholder="juan@ejemplo.com"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
+                    {...register("email")}
                   />
+                  {errors.email && (
+                    <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                  )}
                 </div>
 
                 <div>
                   <Label htmlFor="company">Empresa</Label>
                   <Input
                     id="company"
-                    name="company"
                     placeholder="Tu Empresa"
-                    value={formData.company}
-                    onChange={handleChange}
+                    {...register("company")}
                   />
                 </div>
 
                 <div>
                   <Label htmlFor="interest">¿En qué estás interesado?</Label>
-                  <Select value={formData.interest} onValueChange={handleSelectChange}>
+                  <Select value={watchedValues.interest || ""} onValueChange={handleSelectChange}>
                     <SelectTrigger id="interest">
                       <SelectValue placeholder="Selecciona una opción" />
                     </SelectTrigger>
@@ -145,21 +154,21 @@ const ContactSection = () => {
                   <Label htmlFor="message">Mensaje</Label>
                   <Textarea
                     id="message"
-                    name="message"
                     placeholder="Cuéntanos sobre tu proyecto o consulta..."
                     rows={4}
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
+                    {...register("message")}
                   />
+                  {errors.message && (
+                    <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
+                  )}
                 </div>
 
                 <Button
                   type="submit"
                   className="w-full bg-purple-gradient hover:opacity-90"
-                  disabled={isSubmitting}
+                  disabled={formStatus === 'submitting'}
                 >
-                  {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
+                  {formStatus === 'submitting' ? "Enviando..." : "Enviar Mensaje"}
                 </Button>
               </form>
             </div>
@@ -168,6 +177,6 @@ const ContactSection = () => {
       </div>
     </section>
   );
-};
+}
 
 export default ContactSection;

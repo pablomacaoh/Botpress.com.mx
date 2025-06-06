@@ -1,0 +1,49 @@
+# ===================================================================
+# Sensitive Environment Variables
+# NEVER commit your secret keys!
+# ===================================================================
+.env
+.env.local
+.env.*.local
+
+
+# ===================================================================
+# Dependencies & Build Artifacts
+# ===================================================================
+# The folder with all your installed packages
+/node_modules
+
+# The folder Vite creates when you run 'npm run build'
+/dist
+
+# The folder Vite uses for its cache to speed up development
+/.vite
+
+
+# ===================================================================
+# Logs & Debugging
+# =_=================================================================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.npm/
+
+
+# ===================================================================
+# IDE and Editor-specific files
+# ===================================================================
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+
+# ===================================================================
+# Operating System files
+# ===================================================================
+.DS_Store
+Thumbs.db
