@@ -1,0 +1,102 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 260 80% 74%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 260 20% 54%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 260 50% 88%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 5.9% 10%;
+    --input: 240 5.9% 10%;
+    --ring: 260 70% 74%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-bot-darkBg text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer components {
+  .hero-text {
+    @apply text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6;
+  }
+  
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold mb-6 text-white;
+  }
+  
+  .section-subheading {
+    @apply text-xl md:text-2xl font-medium mb-4 text-gray-300;
+  }
+  
+  .card-hover {
+    @apply hover:shadow-lg hover:scale-[1.02] transition-all duration-300;
+  }
+  
+  .gradient-border {
+    @apply relative before:absolute before:inset-0 before:p-[1px] before:rounded-lg before:bg-purple-gradient before:-z-10;
+  }
+  
+  .glass-effect {
+    @apply bg-bot-darkBg/80 backdrop-blur-sm border-b border-white/5;
+  }
+
+  .highlight-banner {
+    @apply bg-green-900/20 text-white px-6 py-2 rounded-full border border-green-500/20 inline-block;
+  }
+  
+  .primary-button {
+    @apply bg-blue-500 hover:bg-blue-600 text-white font-medium px-6 py-3 rounded-md flex items-center gap-2 transition-all;
+  }
+  
+  .secondary-button {
+    @apply bg-muted hover:bg-muted/80 text-white font-medium px-6 py-3 rounded-md flex items-center gap-2 transition-all;
+  }
+  
+  .bg-grid-lines {
+    @apply bg-[url('/grid-lines.svg')] bg-center;
+  }
+}
