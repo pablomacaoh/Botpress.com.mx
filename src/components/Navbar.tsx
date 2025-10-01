@@ -31,6 +31,9 @@ export const Navbar = () => {
             <a href="#learn" className="text-sm font-medium hover:text-primary transition-colors">
               Aprende
             </a>
+            <a href="#contacto" className="text-sm font-medium hover:text-primary transition-colors">
+              Contacto
+            </a>
           </div>
           
           <div className="hidden md:flex items-center gap-4">
@@ -60,6 +63,9 @@ export const Navbar = () => {
               </a>
               <a href="#learn" className="text-sm font-medium hover:text-primary transition-colors">
                 Aprende
+              </a>
+              <a href="#contacto" className="text-sm font-medium hover:text-primary transition-colors">
+                Contacto
               </a>
               <div className="flex flex-col gap-2 pt-2">
                 <Button variant="ghost" className="w-full">Iniciar Sesión</Button>
