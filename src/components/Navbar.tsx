@@ -22,14 +22,14 @@ export const Navbar = () => {
             <a href="#features" className="text-sm font-medium hover:text-primary transition-colors">
               Características
             </a>
+            <a href="#offerings" className="text-sm font-medium hover:text-primary transition-colors">
+              Qué Ofrecemos
+            </a>
             <a href="#pricing" className="text-sm font-medium hover:text-primary transition-colors">
               Precios
             </a>
             <a href="#learn" className="text-sm font-medium hover:text-primary transition-colors">
               Aprende
-            </a>
-            <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">
-              Nosotros
             </a>
           </div>
           
@@ -52,14 +52,14 @@ export const Navbar = () => {
               <a href="#features" className="text-sm font-medium hover:text-primary transition-colors">
                 Características
               </a>
+              <a href="#offerings" className="text-sm font-medium hover:text-primary transition-colors">
+                Qué Ofrecemos
+              </a>
               <a href="#pricing" className="text-sm font-medium hover:text-primary transition-colors">
                 Precios
               </a>
               <a href="#learn" className="text-sm font-medium hover:text-primary transition-colors">
                 Aprende
-              </a>
-              <a href="#about" className="text-sm font-medium hover:text-primary transition-colors">
-                Nosotros
               </a>
               <div className="flex flex-col gap-2 pt-2">
                 <Button variant="ghost" className="w-full">Iniciar Sesión</Button>

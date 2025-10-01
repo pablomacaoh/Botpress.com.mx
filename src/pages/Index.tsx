@@ -1,9 +1,10 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Features } from "@/components/Features";
+import { Partner } from "@/components/Partner";
+import { Offerings } from "@/components/Offerings";
 import { Pricing } from "@/components/Pricing";
 import { Learn } from "@/components/Learn";
-import { About } from "@/components/About";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -15,14 +16,17 @@ const Index = () => {
         <div id="features">
           <Features />
         </div>
+        <div id="partner">
+          <Partner />
+        </div>
+        <div id="offerings">
+          <Offerings />
+        </div>
         <div id="pricing">
           <Pricing />
         </div>
         <div id="learn">
           <Learn />
-        </div>
-        <div id="about">
-          <About />
         </div>
       </main>
       <Footer />
