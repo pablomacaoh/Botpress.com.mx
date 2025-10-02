@@ -1,4 +1,4 @@
-import { Bot } from "lucide-react";
+import logo from "@/assets/logo-botpress.png";
 
 export const Footer = () => {
   return (
@@ -7,10 +7,7 @@ export const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center">
-                <Bot className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-lg font-bold">WhatsBot AI</span>
+              <img src={logo} alt="Botpress MX Logo" className="h-8 w-auto" />
             </div>
             <p className="text-sm text-muted-foreground">
               Democratizando la IA para empresas de todos los tamaños.

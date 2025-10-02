@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Bot, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useState } from "react";
+import logo from "@/assets/logo-botpress.png";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,12 +11,7 @@ export const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center">
-              <Bot className="w-6 h-6 text-white" />
-            </div>
-            <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              WhatsBot AI
-            </span>
+            <img src={logo} alt="Botpress MX Logo" className="h-10 w-auto" />
           </div>
           
           <div className="hidden md:flex items-center gap-8">
