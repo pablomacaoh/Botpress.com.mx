@@ -20,30 +20,27 @@ export const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Producto</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">Características</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Precios</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Casos de Uso</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Integraciones</a></li>
+              <li><a href="#features" className="hover:text-primary transition-colors">Características</a></li>
+              <li><a href="#offerings" className="hover:text-primary transition-colors">Qué Ofrecemos</a></li>
+              <li><a href="#pricing" className="hover:text-primary transition-colors">Precios</a></li>
+              <li><a href="#learn" className="hover:text-primary transition-colors">Aprende</a></li>
             </ul>
           </div>
           
           <div>
             <h3 className="font-semibold mb-4">Recursos</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">Documentación</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Guías</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">API</a></li>
+              <li><a href="#learn" className="hover:text-primary transition-colors">Documentación</a></li>
+              <li><a href="#learn" className="hover:text-primary transition-colors">Guías</a></li>
+              <li><a href="#partner" className="hover:text-primary transition-colors">Partners</a></li>
             </ul>
           </div>
           
           <div>
             <h3 className="font-semibold mb-4">Empresa</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">Sobre Nosotros</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Carreras</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Contacto</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Soporte</a></li>
+              <li><a href="#partner" className="hover:text-primary transition-colors">Sobre Nosotros</a></li>
+              <li><a href="#contacto" className="hover:text-primary transition-colors">Contacto</a></li>
             </ul>
           </div>
         </div>
