@@ -4,6 +4,20 @@ import { ArrowRight, Bot } from "lucide-react";
 export const Hero = () => {
   return (
     <section className="relative bg-gradient-hero py-20 md:py-32 overflow-hidden">
+      {/* Animated wave layers */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-accent/20 animate-wave blur-3xl"></div>
+        </div>
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute bottom-0 right-0 w-full h-full bg-gradient-to-tl from-accent/30 via-transparent to-primary/30 animate-wave-reverse blur-3xl"></div>
+        </div>
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/40 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/40 rounded-full blur-3xl animate-float" style={{ animationDelay: "3s" }}></div>
+        </div>
+      </div>
+      
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">

@@ -110,6 +110,30 @@ export default {
             transform: "scale(1)",
           },
         },
+        "wave": {
+          "0%, 100%": {
+            transform: "translateX(0) translateY(0)",
+          },
+          "50%": {
+            transform: "translateX(-25%) translateY(-5%)",
+          },
+        },
+        "wave-reverse": {
+          "0%, 100%": {
+            transform: "translateX(0) translateY(0)",
+          },
+          "50%": {
+            transform: "translateX(25%) translateY(5%)",
+          },
+        },
+        "float": {
+          "0%, 100%": {
+            transform: "translateY(0px)",
+          },
+          "50%": {
+            transform: "translateY(-20px)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -117,6 +141,9 @@ export default {
         "fade-in": "fade-in 0.6s ease-out",
         "fade-in-up": "fade-in-up 0.5s ease-out",
         "scale-in": "scale-in 0.4s ease-out",
+        "wave": "wave 20s ease-in-out infinite",
+        "wave-reverse": "wave-reverse 18s ease-in-out infinite",
+        "float": "float 6s ease-in-out infinite",
       },
       backgroundImage: {
         "gradient-primary": "var(--gradient-primary)",
