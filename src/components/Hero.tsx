@@ -6,15 +6,16 @@ export const Hero = () => {
     <section className="relative bg-gradient-hero py-20 md:py-32 overflow-hidden">
       {/* Animated wave layers */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-accent/20 animate-wave blur-3xl"></div>
+        <div className="absolute inset-0 opacity-60">
+          <div className="absolute top-0 left-0 w-[150%] h-[150%] bg-gradient-to-br from-primary/40 via-transparent to-accent/40 animate-wave blur-2xl"></div>
         </div>
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute bottom-0 right-0 w-full h-full bg-gradient-to-tl from-accent/30 via-transparent to-primary/30 animate-wave-reverse blur-3xl"></div>
+        <div className="absolute inset-0 opacity-50">
+          <div className="absolute bottom-0 right-0 w-[150%] h-[150%] bg-gradient-to-tl from-accent/50 via-transparent to-primary/50 animate-wave-reverse blur-2xl"></div>
         </div>
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/40 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/40 rounded-full blur-3xl animate-float" style={{ animationDelay: "3s" }}></div>
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/30 rounded-full blur-3xl animate-float opacity-70"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-accent/30 rounded-full blur-3xl animate-float opacity-70" style={{ animationDelay: "3s" }}></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-secondary/20 rounded-full blur-3xl animate-float opacity-50" style={{ animationDelay: "1.5s" }}></div>
         </div>
       </div>
       
