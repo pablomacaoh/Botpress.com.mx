@@ -141,9 +141,9 @@ export default {
         "fade-in": "fade-in 0.6s ease-out",
         "fade-in-up": "fade-in-up 0.5s ease-out",
         "scale-in": "scale-in 0.4s ease-out",
-        "wave": "wave 20s ease-in-out infinite",
-        "wave-reverse": "wave-reverse 18s ease-in-out infinite",
-        "float": "float 6s ease-in-out infinite",
+        "wave": "wave 12s ease-in-out infinite",
+        "wave-reverse": "wave-reverse 15s ease-in-out infinite",
+        "float": "float 4s ease-in-out infinite",
       },
       backgroundImage: {
         "gradient-primary": "var(--gradient-primary)",
