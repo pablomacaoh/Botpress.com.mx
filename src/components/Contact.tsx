@@ -252,7 +252,7 @@ export const Contact = () => {
               <p className="text-muted-foreground mb-6">
                 Reserva una consulta de 30 minutos para discutir tus necesidades de entrenamiento en IA.
               </p>
-              <a href="https://calendly.com/pablo-charro/15-minute-meeting" target="_blank" rel="noopener noreferrer">
+              <a href="https://calendly.com/pablo-charro/15-minute-meeting" target="_blank" rel="noopener noreferrer" onClick={() => fbq('track', 'Schedule')}>
                 <Button variant="outline" size="lg" className="w-full group">
                   <Calendar className="w-5 h-5 mr-2" />
                   Reservar Consulta
