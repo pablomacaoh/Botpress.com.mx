@@ -3,7 +3,7 @@ import { ArrowRight, Bot } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <section className="relative bg-gradient-hero py-20 md:py-32 overflow-hidden">
+    <section id="hero" className="relative bg-gradient-hero py-20 md:py-32 overflow-hidden">
       {/* Animated wave layers */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 opacity-60">

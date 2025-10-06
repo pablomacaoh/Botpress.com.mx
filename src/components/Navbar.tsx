@@ -10,9 +10,9 @@ export const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-[hsl(var(--navbar-bg))]/95 backdrop-blur-lg border-b border-border/50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center gap-2">
-            <img src={logo} alt="Botpress MX Logo" className="h-10 w-auto" />
-          </div>
+          <a href="#hero">
+            <img src={logo} alt="Botpress MX Logo" className="h-12 w-auto" />
+          </a>
           
           <div className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-sm font-medium hover:text-primary transition-colors">
@@ -24,17 +24,10 @@ export const Navbar = () => {
             <a href="#pricing" className="text-sm font-medium hover:text-primary transition-colors">
               Precios
             </a>
-            <a href="#learn" className="text-sm font-medium hover:text-primary transition-colors">
-              Aprende
-            </a>
-            <a href="#contacto" className="text-sm font-medium hover:text-primary transition-colors">
-              Contacto
-            </a>
           </div>
           
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost">Iniciar Sesión</Button>
-            <Button variant="default">Empezar Gratis</Button>
+            <Button variant="default">Contacto</Button>
           </div>
           
           <button 

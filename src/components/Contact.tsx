@@ -38,14 +38,23 @@ export const Contact = () => {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      toast({
-        title: "¡Mensaje enviado!",
-        description: "Te responderemos dentro de 24 horas.",
+      const response = await fetch("https://formbold.com/s/3OWpR", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
-      reset();
+
+      if (response.ok) {
+        toast({
+          title: "¡Mensaje enviado!",
+          description: "Te responderemos dentro de 24 horas.",
+        });
+        reset();
+      } else {
+        throw new Error("Form submission failed");
+      }
     } catch (error) {
       toast({
         title: "Error",
@@ -78,7 +87,12 @@ export const Contact = () => {
                 Completa el formulario a continuación y te responderemos dentro de 24 horas.
               </p>
 
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              <form 
+                method="POST"
+                action="https://formbold.com/s/3OWpR" 
+                onSubmit={handleSubmit(onSubmit)} 
+                className="space-y-6"
+              >
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="name">
@@ -235,10 +249,12 @@ export const Contact = () => {
               <p className="text-muted-foreground mb-6">
                 Reserva una consulta de 30 minutos para discutir tus necesidades de entrenamiento en IA.
               </p>
-              <Button variant="outline" size="lg" className="w-full group">
-                <Calendar className="w-5 h-5 mr-2" />
-                Reservar Consulta
-              </Button>
+              <a href="https://calendly.com/pablo-charro/15-minute-meeting" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="lg" className="w-full group">
+                  <Calendar className="w-5 h-5 mr-2" />
+                  Reservar Consulta
+                </Button>
+              </a>
               <p className="text-sm text-muted-foreground text-center mt-3">
                 Se abrirá en una nueva pestaña
               </p>
