@@ -20,19 +20,16 @@ export const Footer = () => {
               <li><a href="#features" className="hover:text-primary transition-colors">Características</a></li>
               <li><a href="#offerings" className="hover:text-primary transition-colors">Qué Ofrecemos</a></li>
               <li><a href="#pricing" className="hover:text-primary transition-colors">Precios</a></li>
-              <li><a href="#learn" className="hover:text-primary transition-colors">Aprende</a></li>
             </ul>
           </div>
         </div>
         
         <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2024 WhatsBot AI. Todos los derechos reservados.
+            © 2025 botpress.com.mx - Todos los derechos reservados.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-primary transition-colors">Privacidad</a>
-            <a href="#" className="hover:text-primary transition-colors">Términos</a>
-            <a href="#" className="hover:text-primary transition-colors">Cookies</a>
+            <a href="/legal" className="hover:text-primary transition-colors">Términos y Privacidad</a>
           </div>
         </div>
       </div>
