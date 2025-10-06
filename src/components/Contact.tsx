@@ -21,6 +21,8 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
+declare const fbq: (type: string, event: string) => void;
+
 export const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -47,6 +49,7 @@ export const Contact = () => {
       });
 
       if (response.ok) {
+        fbq('track', 'Lead');
         toast({
           title: "¡Mensaje enviado!",
           description: "Te responderemos dentro de 24 horas.",
