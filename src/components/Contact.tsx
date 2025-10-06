@@ -219,8 +219,6 @@ export const Contact = () => {
                 </div>
 
                 <div className="flex gap-4">
-                </div>
-                <div className="flex gap-4">
                   <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                     <a href="https://wa.me/525543419875" target="_blank" rel="noopener noreferrer">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="hsl(270 70% 50%)" className="bi bi-whatsapp" viewBox="0 0 16 16">
