@@ -79,11 +79,6 @@ export const Offerings = () => {
                   <span className="text-muted-foreground">mensuales</span>
                 </p>
               </div>
-              
-              <Button variant="default" size="lg" className="w-full group/btn">
-                Ver Planes y Precios
-                <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
-              </Button>
             </CardContent>
           </Card>
           
@@ -133,11 +128,6 @@ export const Offerings = () => {
                   </span>
                 </p>
               </div>
-              
-              <Button variant="secondary" size="lg" className="w-full group/btn">
-                Solicitar Cotización
-                <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
-              </Button>
             </CardContent>
           </Card>
         </div>

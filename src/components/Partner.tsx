@@ -15,7 +15,7 @@ export const Partner = () => {
               Partner Certificado de Botpress
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              BPMx es socio oficial de Botpress.com, brindando soporte especializado 
+              Botpress.com.mx es socio oficial de Botpress.com, brindando soporte especializado 
               y servicios profesionales en México y Latinoamérica.
             </p>
           </div>
@@ -61,7 +61,7 @@ export const Partner = () => {
           <Card className="bg-gradient-primary text-white border-0 shadow-xl">
             <CardContent className="p-8 md:p-12 text-center">
               <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                La Confianza de Botpress, el Servicio de BPMx
+                La Confianza de Botpress, el Servicio de Botpress.com.mx
               </h3>
               <p className="text-lg text-white/90 max-w-3xl mx-auto leading-relaxed">
                 Obtén todas las ventajas de la plataforma líder en bots conversacionales, 

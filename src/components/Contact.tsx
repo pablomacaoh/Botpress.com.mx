@@ -21,7 +21,12 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
-declare const fbq: (type: string, event: string) => void;
+declare global {
+  interface Window {
+    fbq?: (type: string, event: string) => void;
+    gtag?: (type: string, event: string, params: object) => void;
+  }
+}
 
 export const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -49,7 +54,15 @@ export const Contact = () => {
       });
 
       if (response.ok) {
-        fbq('track', 'Lead');
+        if (window.fbq) {
+          window.fbq('track', 'Lead');
+        }
+        if (window.gtag) {
+          window.gtag("event", "generate_lead", {
+            "event_category": "contact",
+            "event_label": "Formulario de Contacto"
+          });
+        }
         toast({
           title: "¡Mensaje enviado!",
           description: "Te responderemos dentro de 24 horas.",
@@ -258,7 +271,17 @@ export const Contact = () => {
               <p className="text-muted-foreground mb-6">
                 Reserva una consulta de 30 minutos para discutir tus necesidades de entrenamiento en IA.
               </p>
-              <a href="https://calendly.com/pablo-charro/15-minute-meeting" target="_blank" rel="noopener noreferrer" onClick={() => fbq('track', 'Schedule')}>
+              <a href="https://calendly.com/pablo-charro/15-minute-meeting" target="_blank" rel="noopener noreferrer" onClick={() => {
+                if (window.fbq) {
+                  window.fbq('track', 'Schedule');
+                }
+                if (window.gtag) {
+                  window.gtag('event', 'book_appointment', {
+                    'event_category': 'contact',
+                    'event_label': 'Reservar Consulta'
+                  });
+                }
+              }}>
                 <Button variant="outline" size="lg" className="w-full group">
                   <Calendar className="w-5 h-5 mr-2" />
                   Reservar Consulta
